@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Mileage Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏃‍♂️ Weekly Mileage Tracker</h1>
+            <p>Track your running and walking workouts</p>
+        </header>
+
+        <main>
+            <section class="quick-add">
+                <button id="toggleFormBtn" class="btn-toggle-large">+ Add Workout</button>
+            </section>
+
+            <section class="chart-section">
+                <div class="chart-header">
+                    <h2>Weekly Mileage Trend</h2>
+                    <div class="chart-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="run">Run</button>
+                        <button class="filter-btn" data-filter="walk">Walk</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+            </section>
+
+            <section class="stats">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>This Week</h3>
+                        <p class="stat-number" id="weeklyTotal">0.0</p>
+                        <p class="stat-label">km</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Previous Week</h3>
+                        <p class="stat-number" id="previousWeekTotal">0.0</p>
+                        <p class="stat-label">km</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recent-workouts">
+                <h2>Recent Workouts</h2>
+                <div id="workoutsList" class="workouts-list">
+                    <!-- Workouts will be populated here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal -->
+        <div id="workoutModal" class="modal hidden">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Add New Workout</h2>
+                    <button id="closeModalBtn" class="close-btn">&times;</button>
+                </div>
+                <form id="workoutForm">
+                    <div class="form-group">
+                        <label for="workoutType">Workout Type:</label>
+                        <select id="workoutType" name="workoutType" required>
+                            <option value="run">Run</option>
+                            <option value="walk">Walk</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="distance">Distance (km):</label>
+                        <input type="number" id="distance" name="distance" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+                        <button type="submit" class="btn-primary">Add Workout</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
