@@ -29,7 +29,7 @@ Whether you're training for your first 5K or preparing for a marathon, consisten
 
 ## 🚀 Live Demo
 
-[View the live demo here](https://your-netlify-url.netlify.app)
+[View the live demo here](https://melodious-kelpie-e6401e.netlify.app/)
 
 ## 🛠️ Technologies Used
 
